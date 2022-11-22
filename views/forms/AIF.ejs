@@ -1,0 +1,201 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/cf.css">
+    </head>
+
+    <body>
+        <%- include('../includes/nav.ejs') %>
+            <div class="container">
+                <form action="/administrative-investigation" method="post" onsubmit="showloadingButton();">
+                    <div class="row">
+                        <h2>نموذج تحقيق اداري</h2>
+                        <div class="column" style="background-color:#aaa;">
+                            <div class="row">
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">اسم الموظف</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="empName" value="<%= userName %>" readonly required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">المسمى الوظيفي</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="empjob" placeholder="محاسب" required>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">الرئيس المباشر</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="bossName" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">المسمى الوظيفي</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="bossJob" placeholder="محاسب" required>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column" style="background-color:#bbb;">
+                            <div class="row">
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">تاريخ الخطأ الاداري</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="date" id="datepicker2" name="errorDate" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">تاريخ اليوم</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="nowDate" value="<%= todayDate %>" readonly required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">مكان الخطأ الاداري</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="erorrPlace" required>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">وقت الخطأ الاداري</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="errorTime" placeholder="14:00" required>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h2 style="visibility: hidden;">noor</h2>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">وصف الخطأ الاداري</label>
+                            </div>
+                            <div class="col-75">
+                                <textarea name="errorDesc" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">أقوال الشهود على الخطأ الاداري (ان وجدوا)</label>
+                            </div>
+                            <div class="col-75">
+                                <textarea name="witnessesDesc" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">اسماء ومناصب أعضاء لجنة التحقيق<label>
+                            </div>
+                            <div class="col-75">
+                                <textarea name="membersNames" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">نوع الاجراء الاداري المقرر<label>
+                            </div>
+                            <div class="col-75">
+                                <label class="radio-inline">
+                                    <input type="radio" name="ADM_ACTION" checked value="لفظي">لفظي
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="ADM_ACTION" value="كتابي">كتابي
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="ADM_ACTION" value="تعليق العقوبة" id="punish">تعليق
+                                    العقوبة
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="ADM_ACTION" value="ايقاف عن العمل">ايقاف عن العمل
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="ADM_ACTION" value="أخرى" id="other">أخرى (برجاء الشرح)
+                                </label>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                </div>
+                                <div class="col-75">
+                                    <textarea name="ADM_ACTION_OTHER" disabled id="otherField"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    في حالة تعليق العقوبة
+                                </div>
+                                <div class="col-75">
+                                    <div class="row">
+                                        <div class="col-25">
+                                            <label for="lname">تبدأ في : </label>
+                                        </div>
+                                        <div class="col-75">
+                                            <input type="date" id="datepicker" name="PUNISH_START_DATE" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-25">
+                                            <label for="lname">و تنتهي في : </label>
+                                        </div>
+                                        <div class="col-75">
+                                            <input type="date" id="datepicker3" name="PUNISH_END_DATE" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2 style="visibility: hidden;">noor</h2>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">الأهداف المطلوب تحقيقها من الاجراء</label>
+                                </div>
+                                <div class="col-75">
+                                    <textarea name="punishGoals" required></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-35">
+                                    <label for="lname">الاجراءات الواجب اتخاذها في حال تكرار الخطأ الاداري مرة أخرى :
+                                    </label>
+                                </div>
+                                <div class="col-65">
+                                    <textarea name="errorRepeat" required></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">افادة الموظف</label>
+                                </div>
+                                <div class="col-75">
+                                    <textarea name="emp_statment" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="submit" id="submitButton" style="display: block;" value="حـفـظ">
+                        <button type="button" style="display: none;" class="buttonload" id="loadingButton">
+                            <i class="fa fa-circle-o-notch fa-spin"></i>
+                        </button>
+                </form>
+            </div>
+    </body>
+    <script src="js/script.js">
+    </script>
+
+    </html>

@@ -1,0 +1,93 @@
+html {
+    direction: rtl;
+}
+
+form {
+    color: #fff;
+    background-color: #004D40;
+    width: auto;
+    max-width: 60%;
+    margin: 50px auto;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.form-control {
+    width: 85px;
+    height: 20px;
+    border: none;
+    margin: 5px 10px;
+    padding: 10px 10px;
+}
+
+.form-content {
+    margin: 0 10px;
+    padding: 0 10px;
+    display: inline-flex;
+}
+
+.form-content2 {
+    margin: 0 10px;
+    display: inline-flex;
+}
+
+.form-content3 {
+    padding: 0 10px;
+}
+
+.form-control2 {
+    width: 30%;
+    height: 20px;
+    border: none;
+    margin: 5px 5px;
+    padding: 10px 5px;
+}
+
+#datepicker2 {
+    width: 102px;
+    height: 20px;
+    border: none;
+    margin: 5px 5px;
+    padding: 10px 5px;
+}
+
+.btnDiv {
+    padding: 25px;
+    text-align: center;
+}
+
+.btn {
+    padding: 15px 40px;
+    background-color: rgb(207, 215, 217);
+    ;
+    border: none;
+    border-radius: 50px;
+    text-transform: uppercase;
+    color: #004D40;
+    font-weight: 700;
+}
+
+.btn:hover {
+    background-color: gray;
+    color: black;
+}
+
+p {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.form-letter {
+    margin: 0 15px;
+    text-align: center;
+}
+
+.empInfo {
+    margin: 0 10px;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.empInfo div p {
+    display: block;
+}

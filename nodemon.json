@@ -1,0 +1,9 @@
+{
+    "env": {
+        "dbHost": "172.107.203.181", 
+        "dbPort": "1521", 
+        "dbServiceName": "KCSCLOUD2", 
+        "dbUser": "PER", 
+        "dbPass": "PER" 
+    }
+}

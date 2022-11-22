@@ -1,0 +1,106 @@
+.form-control {
+  margin: 1rem 0;
+}
+
+.form-control input,
+.form-control textarea {
+  border: 1px solid #a1a1a1;
+  font: inherit;
+  border-radius: 2px;
+}
+
+.form-control input:focus,
+.form-control textarea:focus {
+  outline-color: #00695c;
+}
+
+.form-control input.invalid,
+.form-control textarea.invalid {
+  border-color: red;
+}
+/*set border to the form*/
+h2 {
+  text-align: center;
+}
+form {
+  border: 3px solid #f1f1f1;
+}
+/*assign full width inputs*/
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+/*set a style for the buttons*/
+button {
+  background-color: #004D40;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+/* set a hover effect for the button*/
+
+button:hover {
+  background-color: green;
+}
+/*set extra style for the cancel button*/
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+/*centre the display image inside the container*/
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 0px 0;
+}
+/*set image properties*/
+
+img.avatar {
+  border-radius: 0%;
+}
+/*set padding to the container*/
+
+.container {
+  margin: auto;
+  width: 45%;
+  padding: 10px 0;
+}
+.container label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+/*set the forgot password text*/
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+/*set styles for span and cancel button on small screens*/
+
+@media screen and (max-width: 750px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
+  .container {
+    width: 70%;
+  }
+  img {
+    width: 230px;
+    height: 230px;
+  }
+}

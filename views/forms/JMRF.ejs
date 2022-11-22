@@ -1,0 +1,259 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/cf.css">
+
+    </head>
+
+    <body>
+        <%- include('../includes/nav.ejs') %>
+
+            <div class="container">
+                <form action="/job-mission-request" method="post" onsubmit="showloadingButton();">
+                    <div class="row" style="text-align: center;">
+                        <label class="radio-inline">
+                            <input type="radio" name="localInterJob" checked required value="داخلي">داخلي
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="localInterJob" value="خارجي">خارجي
+                        </label>
+                    </div>
+                    <div class="row" style="background-color:rgb(202, 211, 203);">
+                        <div class="row">
+                            <h3>بيانات الموظف</h3>
+                            <div class="col-25">
+                                <label for="lname">اسم الموظف</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="userName" value="<%= userName %>" required readonly>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">رقم الموظف</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="empId" placeholder="0221558" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">التاريخ</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="date" id="datepicker2" name="empDate" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">مسمى الوظيفة </label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="embJob" placeholder="مهندس" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">الإدارة</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="empAdmini" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">الـقــســــم</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="empDep" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">جهة مهمة العمل</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="directionMission" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">المدة</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="number" id="datepicker2" name="durationMission" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">اعتباراً من</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="date" id="datepicker2" name="durationFrom" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">إلى</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="date" id="datepicker2" name="durationTo" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <h3>بيان مهمة العمل</h3>
+                            <div class="row">
+                                <div class="col-25" style="visibility: hidden;">noor</div>
+                                <div class="col-75">
+                                    <textarea name="missionSpecification" placeholder="بيانات مهمة العمل"
+                                        required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="row">
+                        <div class="row">
+                            <h3>تكاليف المهمة</h3>
+                            <div class="row" style="text-align: center;">
+                                <label class="radio-inline">
+                                    <input type="checkbox" name="missionExpense" id="expenseAmountBox"
+                                        onclick="myFunction1()" value="سلفة مصاريف">سلفة مصاريف
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="checkbox" name="missionExpense2" id="travelingTicketBox"
+                                        onclick="myFunction2()" value="تذكرة سفر خط سير">تذكرة سفر خط سير
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="checkbox" name="missionExpense3" id="visasBox" onclick="myFunction3()"
+                                        value="التأشيرات">التأشيرات
+                                </label>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">مبلغ السلف : </label>
+                                </div>
+                                <div class="col-55">
+                                    <input type="number" id="expenseAmount" name="expenseAmount" disabled>
+                                </div>
+                                <div class="col-5">
+                                    <label for="lname">ريال</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">تذكرة سفر خط سير </label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="travelingTicket" id="travelingTicket" disabled>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">التأشيرات</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="visas" id="visas" disabled>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">الاسم</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="msName" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">التاريخ</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="date" id="datepicker2" name="msDate" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <h3>إدارة الموظف</h3>
+                            <p style=" text-align: center;"> سعادة المدير العام . </p>
+                            <p style=" text-align: center;">أرجو الموافقة على تكليف الموظف المذكور بالمهمة المذكورة
+                                أعلاه </p>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">إلى</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="edToName" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">لمدة</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="number" id="datepicker" name="edForDays"
+                                        placeholder="مدة التكليف بالايام" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">التاريخ</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="date" id="datepicker2" name="edForDate" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">الاسم</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="edName" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">الوظيفة</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="edJob" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">التاريخ</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="date" id="datepicker2" name="edDate" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <h3>الاعتماد</h3>
+                            <h4 style="text-align: center;"> المدير العام </h4>
+                            <div class="row" style="text-align: center;">
+                                <label class="radio-inline">
+                                    <input type="radio" name="aApproved" checked required value="1">اوافق
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="aApproved" value="0"> لا اوافق
+                                </label>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">التاريخ</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="date" id="datepicker2" name="GENERAL_DIRECTOR_DATE" required>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="submit" id="submitButton" style="display: block;" value="حـفـظ">
+                        <button type="button" style="display: none;" class="buttonload" id="loadingButton">
+                            <i class="fa fa-circle-o-notch fa-spin"></i>
+                        </button>
+                </form>
+            </div>
+            <script src="js/script.js"></script>
+    </body>
+
+    </html>

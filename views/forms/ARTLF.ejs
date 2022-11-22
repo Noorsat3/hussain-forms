@@ -1,0 +1,61 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/cf.css">
+
+    </head>
+
+    <body>
+        <%- include('../includes/nav.ejs') %>
+            <div class="container">
+                <form action="/receipt-of-the-list" method="post" onsubmit="showloadingButton();">
+                    <div class="row">
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">اقر انا </label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="empName" value="<%= userName %>" readonly required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">والذي أعمل بوظيفة</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="emp_job" placeholder="محاسب" required>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">بإدارة / قسم</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="emp_dep" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">بتاريخ</label>
+                                </div>
+                                <div class="col-75">
+                                    <input required type="date" id="datepicker2" name="req_date">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 15px; text-align: center;">
+                        <p>أنني قد استلمت لائحة العمل والعمال النظامية ولائحة المكافآت والجزاءات المعتمدة من وزارة
+                            العمل والمعمول بها في الشركة للإطلاع عليها والعمل بموجبها.</p>
+                    </div>
+                    </div>
+                    <input type="submit" id="submitButton" style="display: block;" value="حـفـظ">
+                    <button type="button" style="display: none;" class="buttonload" id="loadingButton">
+                        <i class="fa fa-circle-o-notch fa-spin"></i>
+                    </button>
+                </form>
+            </div>
+    </body>
+    <script src="js/script.js"></script>
+
+    </html>

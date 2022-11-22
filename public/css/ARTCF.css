@@ -1,0 +1,80 @@
+html {
+    direction: rtl;
+}
+
+form {
+    color: #fff;
+    background-color: #004D40;
+    width: auto;
+    max-width: 60%;
+    margin: 50px auto;
+    padding: 30px 20px;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+#form .todayDate {
+    display: flex;
+    justify-content: center;
+}
+
+.usre-signature {
+    display: flex;
+}
+
+.emp-received-car {
+    display: flex;
+}
+
+#form .pDiv {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-control {
+    width: 85px;
+    height: 20px;
+    border: none;
+    margin: 5px 0px;
+    padding: 10px 15px;
+}
+
+#datepicker2 {
+    width: 95px;
+    height: 20px;
+    border: none;
+    margin: 5px 0px;
+    padding: 10px 15px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.btnDiv {
+    padding: 30px;
+    text-align: center;
+}
+
+.btn {
+    padding: 15px 40px;
+    background-color: rgb(207, 215, 217);;
+    border: none;
+    border-radius: 50px;
+    text-transform: uppercase;
+    color: #004D40;
+    font-weight: 700;
+}
+
+.btn:hover {
+    background-color: gray;
+    color: black;
+}

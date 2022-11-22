@@ -1,0 +1,200 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/cf.css">
+
+    </head>
+
+    <body>
+        <%- include('../includes/nav.ejs') %>
+
+            <div class="container">
+                <form action="/Penalty-procedure" method="post" onsubmit="showloadingButton();">
+
+                    <div class="row" style="background-color:rgb(202, 211, 203);">
+                        <div class="row">
+                            <h3>بيانات الموظف</h3>
+                            <div class="col-25">
+                                <label>الاسم</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="userName" value="<%= userName %>" required readonly>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>رقم الموظف</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="empNo" placeholder="0221558" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>الإدارة</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="empAdmini" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>الـقــســــم</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="empSection" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>مسمى الوظيفة</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="empJob" placeholder="محاسب" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>تاريخ التعين</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="date" id="datepicker2" name="joinDate" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>تاريخ اخر مخالفة</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="date" id="datepicker2" name="lastPenaltyDate" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>الموضوع</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" id="datepicker2" name="subject" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label>المسئول المباشر</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" id="datepicker2" name="directResponsible" required>
+                            </div>
+                        </div>
+                        <h3>الإجراء الجزائي</h3>
+                        <div class="column" style="background-color:#aaa;">
+                            <div class="row" style="text-align: center;">
+                                <label class="radio-inline">
+                                    <input type="radio" name="thePenalty" checked required value="لفت نظر">لفت نظر
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="thePenalty" value="إنذار كتابي">إنذار
+                                    كتابي
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="thePenalty" value="خصم" id="DEDUCTION">خصم
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="thePenalty" value="إنذار كتابي بالفصل">إنذار كتابي بالفصل
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="thePenalty" value="اخرى">اخرى
+                                </label>
+                                <div class="row" style="padding-right: 25%;">
+                                    <div class="col-25" style="visibility: hidden;">
+                                        noor
+                                    </div>
+                                    <div class="col-7562">
+                                        <input type="number" id="days" name="DEDUCTION_DAYS"
+                                            placeholder="عدد ايام الخصم" disabled>
+                                    </div>
+                                </div>
+                                <label style="visibility: hidden;">
+                                    <input type="radio">إيقاف
+                                    عن العمل
+                                </label>
+                                <label style="visibility: hidden;">
+                                    <input type="radio">إيقاف
+                                    عن العمل
+                                </label>
+                            </div>
+                        </div>
+                        <div class="column" style="background-color:#bbb;">
+                            <div class="row" style="text-align: center;">
+                                <label class="radio-inline">
+                                    <input type="radio" name="thePenalty" value="إيقاف عن العمل" id="stopping">إيقاف
+                                    عن العمل
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="thePenalty" value="الحرمان من الزيادة السنوية">الحرمان من
+                                    الزيادة السنوية
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="thePenalty" value="فصل من الخدمة مع التعويض">فصل من الخدمة
+                                    مع التعويض
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="thePenalty" value="فصل من الخدمة بدون تعويض">فصل من الخدمة
+                                    بدون تعويض
+                                </label>
+                                <div class="row" style="padding-right: 25%;">
+                                    <div class="col-25" style="visibility: hidden;">
+                                        noor
+                                    </div>
+                                    <div class="col-7562">
+                                        <input type="number" id="stoppingDays" name="thePenaltyStoppingDays"
+                                            placeholder="عدد ايام التوقيف" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 25px;">
+                        <div class="col-25">
+                            <label>السيد</label>
+                        </div>
+                        <div class="col-55">
+                            <input type="text" id="datepicker2" name="mr" required>
+                        </div>
+                        <div class="col-20">
+                            <label>المحترم</label>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 25px;">
+                        <div class="col-25">
+                            <label>الادارة</label>
+                        </div>
+                        <div class="col-55">
+                            <input type="text" id="datepicker2" name="hrAdmini" required>
+                        </div>
+                    </div>
+                    <div class="row" style="text-align: center; padding-top: 15px;">
+                        إشارة إلى مخالفاتكم في العمل والمتضمنة : ما ذكر في قسم (1) ، وحيث أن مثل هذا يعتبر مخالفاً
+                        للأنظمة واللوائح المطبقة وعليه فقد تقرر اتخاذ الإجراءات الموضحة في القسم (2) ضدكم مع إنذاركم
+                        بعدم
+                        تكرار ذلك مستقبلاً .
+                    </div>
+                    <div class="row" style="text-align: center; padding-top: 15px; font-weight: bold;">
+                        مشرف عام الموارد البشرية والشؤون الإدارية
+                    </div>
+                    <div class="row" style="text-align: center; padding-top: 15px; font-weight: bold;">
+                        <div class="col-25">
+                            <label>التاريخ</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="date" id="datepicker2" name="hrDate" required>
+                        </div>
+                    </div>
+            </div>
+            <input type="submit" id="submitButton" style="display: block;" value="حـفـظ">
+            <button type="button" style="display: none;" class="buttonload" id="loadingButton">
+                <i class="fa fa-circle-o-notch fa-spin"></i>
+            </button>
+            </form>
+            </div>
+            <script src="js/script.js"></script>
+    </body>
+
+    </html>

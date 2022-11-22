@@ -1,0 +1,107 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/cf.css">
+
+    </head>
+
+    <body>
+        <%- include('../includes/nav.ejs') %>
+            <div class="container">
+                <form action="/receipt-of-custody" method="post" onsubmit="showloadingButton();">
+                    <div class="row">
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">اقر انا </label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="empName" value="<%= userName %>" readonly required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">بطاقة شخصية / عائلية / رقم قومي رقم</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="number" id="datepicker2" name="ID_CARD" placeholder="1001001000"
+                                        required>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">وأعمل لدى حسين لتأجير السيارات في وظيفة</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="EMP_JOP" placeholder="الوظيفة" required>
+                                </div>
+                            </div>
+                            <div class="row" style="text-align: center;">
+                                <label for="lname">بأنني قد استلمت من الشركة ما هو مذكور أدناه : </label>
+                            </div>
+                            <div class="row">
+                                <div class="col-25" style="visibility: hidden;">noor</div>
+                                <div class="col-75">
+                                    <input required class="form-control2" type="text" name="FST" placeholder="1 -">
+                                </div>
+                                <div class="col-25" style="visibility: hidden;">noor</div>
+                                <div class="col-75">
+                                    <input required class="form-control2" type="text" name="SND" placeholder="2 -">
+                                </div>
+                                <div class="col-25" style="visibility: hidden;">noor</div>
+                                <div class="col-75">
+                                    <input required class="form-control2" type="text" name="TRD" placeholder="3 -">
+                                </div>
+                                <div class="col-25" style="visibility: hidden;">noor</div>
+                                <div class="col-75">
+                                    <input required class="form-control2" type="text" name="FTH" placeholder="4 -">
+                                </div>
+                                <div class="col-25" style="visibility: hidden;">noor</div>
+                                <div class="col-75">
+                                    <input required class="form-control2" type="text" name="FITH" placeholder="5 -">
+                                </div>
+                                <div class="col-25" style="visibility: hidden;">noor</div>
+                                <div class="col-75">
+                                    <input required class="form-control2" type="text" name="STH" placeholder="6 -">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 15px; text-align: center;">
+                        <p>
+                            وذلك كعهدة لاستخدامها في أعمال الشركة، وأتعهد بالمحافظة عليها واعادة تسليمها للشركة لدى
+                            انتهاء الغرض من استخدامها أو لدى تركي العمل بالشركة. و في حالة عدم تسليم العهدة المذكورة
+                            أعلاه، كلها أو بعضها فأنني أفوض الشركة في اتخاذ اللازم نحو خصم القيمة التي تقدرها مقابل هذة
+                            العهدة، من مستحقاتي لديها ، دون أى اعتراض مني .
+                        </p>
+                        <p>
+                            و هذا اقرار مني بذلك
+                        </p>
+                        <p>
+                            المقر بما فيه
+                        </p>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">الاسم</div>
+                        <div class="col-75">
+                            <input required type="text" name="userName" value="<%= userName %>" readonly>
+                        </div>
+                        <div class="col-25">رقم البطاقة</div>
+                        <div class="col-75">
+                            <input required type="number" id="datepicker2" name="EMP_ID">
+                        </div>
+                        <div class="col-25">التاريخ</div>
+                        <div class="col-75">
+                            <input required type="date" id="datepicker2" name="req_date">
+                        </div>
+                    </div>
+            </div>
+            <input type="submit" id="submitButton" style="display: block;" value="حـفـظ">
+            <button type="button" style="display: none;" class="buttonload" id="loadingButton">
+                <i class="fa fa-circle-o-notch fa-spin"></i>
+            </button>
+            </form>
+            </div>
+    </body>
+    <script src="js/script.js"></script>
+
+    </html>

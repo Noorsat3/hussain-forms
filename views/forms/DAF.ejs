@@ -1,0 +1,199 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/daf.css">
+
+    </head>
+
+    <body>
+        <%- include('../includes/nav.ejs') %>
+
+            <div class="container">
+                <form action="/delegation-of-authority" method="post" onsubmit="showloadingButton();">
+
+                    <div class="row" style="background-color:rgb(202, 211, 203);">
+                        <div class="row">
+                            <h3> (1) البيانات العامه</h3>
+                            <div class="col-25">
+                                <label for="lname">الى</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="userName" value="<%= userName %>" required readonly>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">من</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="giFrom" placeholder="اسم مفوض الصلاحية" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="lname" class="col-25">لقد تم بموجبة تفويضكم ب : </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="delegateFully" checked required value="1">صلاحية كاملة
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="delegateFully" value="0">صلاحية جزئية
+                            </label>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">لتصريف مهام وظيفة : </label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="delegateJob" placeholder="اسم الوظيفة التي تم تفويضها لكم"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">بداية فترة التفويض :</label>
+                            </div>
+                            <div class="col-75">
+                                <label for="lname">اليوم : </label>
+                                <input type="text" name="delegateStartDay" placeholder="الاربعاء" required>
+                                <label for="lname">التاريخ : </label>
+                                <input type="date" id="datepicker2" name="delegateStartDate" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">نهاية فترة التفويض :</label>
+                            </div>
+                            <div class="col-75">
+                                <label for="lname">اليوم : </label>
+                                <input type="text" name="delegateEndDay" placeholder="الاحد" required>
+                                <label for="lname">التاريخ : </label>
+                                <input type="date" id="datepicker2" name="delegateEndDate" required>
+                            </div>
+                        </div>
+                        <br>
+                        <h3>( 2 ) تعليمات خاصة بالتفويض</h3>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">التعليمات</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="delegateInsts" placeholder="ادخل التعليمات الخاصة بالتفويض"
+                                    required>
+                            </div>
+                        </div>
+                        <br>
+                        <h3>( 3 ) التوقيع الرسمي بالتفويض</h3>
+                        <div class="column" style="background-color:#bbb;">
+                            <div class="row">
+                                <h4>مفوض الصلاحية</h4>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">الاســم</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="authorizedName" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">الوظيفة</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="authorizedJob" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">التاريخ</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="date" id="datepicker2" name="authorizedDate" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column" style="background-color:#aaa;">
+                            <div class="row">
+                                <h4>المفوض الصلاحية لة </h4>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">الاســم</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="authorizedToName" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">الوظيفة</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="authorizedToJob" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">التاريخ</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="date" id="datepicker2" name="authorizedToDate" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <h3>( 4 ) التاريخ الفعلي لممارسة التفويض </h3>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">التاريخ الفعلي لبداية لتفويض</label>
+                            </div>
+                            <div class="col-75">
+                                <label for="lname">اليوم : </label>
+                                <input type="text" name="actualDelegateStartDay" placeholder="الاحد" required>
+                                <label for="lname">التاريخ : </label>
+                                <input type="date" id="datepicker2" name="actualDelegateStartDate" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">التاريخ الفعلي لنهاية لتفويض</label>
+                            </div>
+                            <div class="col-75">
+                                <label for="lname">اليوم : </label>
+                                <input type="text" name="actualDelegateEndDay" placeholder="الاحد" required>
+                                <label for="lname">التاريخ : </label>
+                                <input type="date" id="datepicker2" name="actualDelegateEndDate" required>
+                            </div>
+                        </div>
+                        <br>
+                        <h3>( 5 ) ملاحظات مفوض الصلاحية والمفوض لة الصلاحية </h3>
+                        <div class="column" style="background-color:#bbb;">
+                            <h4> مفوض الصلاحية </h4>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">الملاحظات : </label>
+                                </div>
+                                <div class="col-75">
+                                    <textarea name="authorizedNote1" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column" style="background-color:#aaa;">
+                            <h4> المفوض لة الصلاحية </h4>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">الملاحظات : </label>
+                                </div>
+                                <div class="col-75">
+                                    <textarea name="authorizedToNote1" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="submit" id="submitButton" style="display: block;" value="حـفـظ">
+                        <button type="button" style="display: none;" class="buttonload" id="loadingButton">
+                            <i class="fa fa-circle-o-notch fa-spin"></i>
+                        </button>
+                </form>
+            </div>
+            <script src="js/script.js"></script>
+    </body>
+
+    </html>

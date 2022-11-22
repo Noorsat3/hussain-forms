@@ -1,0 +1,89 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/cf.css">
+
+    </head>
+
+    <body>
+        <%- include('../includes/nav.ejs') %>
+            <div class="container">
+                <form action="/identification-model" method="post" onsubmit="showloadingButton();">
+                    <div class="row">
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">الاسم</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="empName" value="<%= userName %>" readonly required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">رقم البطاقة</label>
+                                </div>
+                                <div class="col-75">
+                                    <input required id="datepicker2" type="number" name="empId"
+                                        placeholder="ادخل رقم البطاقة">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">من مواطني</label>
+                                </div>
+                                <div class="col-75">
+                                    <input required class="form-control" type="text" name="nat" placeholder="الجنسية">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">تاريخ بداية العقد : </label>
+                                </div>
+                                <div class="col-75">
+                                    <input required type="date" id="datepicker2" name="start_contract">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">تاريخ نهاية العقد : </label>
+                                </div>
+                                <div class="col-75">
+                                    <input required type="date" id="datepicker2" name="end_contract">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">مسمى الوظيفة الحالي</label>
+                                </div>
+                                <div class="col-75">
+                                    <input required type="text" name="emp_job" placeholder="محاسب">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">اجمالي الراتب الشهري</label>
+                                </div>
+                                <div class="col-55">
+                                    <input required id="datepicker2" type="number" name="emp_salary" placeholder="5500">
+                                </div>
+                                <div class="col-5">
+                                    <label for="lname">ريال</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 15px; text-align: center; font-weight: bold;">
+                        <p>أصدرت له هذه الشهادة بناء على طلبه ، دون أدنى مسؤولية مالية أو قانونية أو خلافها على الشركة.
+                        </p>
+                        <p>وهذه الشهادة صالحة للاستعمال طالما أن التوقيع والختم الرسمي ظاهرين عليها.</p>
+                    </div>
+            </div>
+            <input type="submit" id="submitButton" style="display: block;" value="حـفـظ">
+            <button type="button" style="display: none;" class="buttonload" id="loadingButton">
+                <i class="fa fa-circle-o-notch fa-spin"></i>
+            </button>
+            </form>
+            </div>
+    </body>
+    <script src="js/script.js"></script>
+
+    </html>

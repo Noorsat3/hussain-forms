@@ -1,0 +1,134 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/cf.css">
+
+    </head>
+
+    <body>
+        <%- include('../includes/nav.ejs') %>
+            <div class="container">
+                <form action="/receipt-of-the-car" method="post" onsubmit="showloadingButton();">
+                    <div class="row">
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">اقر انا </label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="empName" value="<%= userName %>" readonly required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">الجنسية</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="nat" placeholder="الجنسية" required>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">هوية رقم :</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="number" id="datepicker2" name="id" placeholder="2100000000" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname"> صادرة من </label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="id_place" placeholder="المنطقة الغربية" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">وتنتهى فى </label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="date" id="datepicker2" name="id_exp" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname"> بأنني استلمت سيارة ماركة </label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="car_model" placeholder="تويوتا" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname"> موديل </label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="car_year" placeholder="2019" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname">رقم لوحات</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" type="text" name="car_pord" placeholder=" ه ف ق 2188" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label for="lname"> اللون </label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" name="car_color" placeholder=" اسود " required>
+                                </div>
+                            </div>
+                            <div class="row" style="text-align: center;">
+                                <label for="lname"> من الشركة لإستخدامها في أغراض العمل وأتعهد بالمحافظة عليها وعلى
+                                    ملحقاتها بحالة جيدة
+                                    واستخدامها أثناء الدوام اليومي ولأغراض العمل.
+                                    وفي حالة حدوث أي مشكلات أن أبلغ الإدارة فوراً كما أقر بمسئوليتي عن أي تلفيات تحدث
+                                    للسيارة
+                                    نتيجة سوء الاستخدام أو عدم العناية. وبعدم تسليم السيارة لأي شخص آخر أو السماح له
+                                    باستخدام
+                                    السيارة وأن أسلم السيارة على الحالة التي استلمتها عليها فور طلب الإدارة ذلك وأن
+                                    أراعي في
+                                    استخدامها القوانين وأنظمة العمل المعمول بها في المملكة العربية السعودية.</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-top: 5px; text-align: center;">
+                        <div class="col-75">
+                            <p>
+                                وأقر بأنني اطلعت على جميع ما ورد بسياسة إستخدام السيارات بشركة
+                            </p>
+                        </div>
+                        <div class="col-25">
+                            <input required type="text" name="companyName" value="شركة حسين لتاجير السيارات" readonly>
+                        </div>
+                    </div>
+                    <p style="font-weight: 600;text-align: center;"> وأقر بالتزامي الكامل بها وبما ورد فيها. </p>
+                    <div class="row">
+                        <div class="col-25">الاسم</div>
+                        <div class="col-75">
+                            <input required type="text" name="userName" value="<%= userName %>" readonly>
+                        </div>
+                        <div class="col-25">التوقيع</div>
+                        <div class="col-75">
+                            <input required type="text" name="emp_signature" value="اوافق" readonly>
+                        </div>
+                        <div class="col-25">التاريخ</div>
+                        <div class="col-75">
+                            <input required type="date" id="datepicker2" name="emp_received_car_date">
+                        </div>
+                    </div>
+                    <input type="submit" id="submitButton" style="display: block;" value="حـفـظ">
+                    <button type="button" style="display: none;" class="buttonload" id="loadingButton">
+                        <i class="fa fa-circle-o-notch fa-spin"></i>
+                    </button>
+            </div>
+            </form>
+            </div>
+    </body>
+    <script src="js/script.js"></script>
+
+    </html>

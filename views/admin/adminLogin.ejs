@@ -1,0 +1,32 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/login.css">
+
+    </head>
+
+    <body>
+        <%- include('../includes/nav.ejs') %>
+            <main>
+                <form action="/admin/login" method="post">
+                    <div class="imgcontainer">
+                        <img src="/img/app_logo.png" width="260" height="260" class="avatar">
+                    </div>
+
+                    <div class="container">
+                        <div class="form-control">
+                            <label for="username"><b>Username</b></label>
+                            <input type="text" placeholder="Enter Username" name="username" required>
+                        </div>
+
+                        <div class="form-control">
+                            <label for="password"><b>Password</b></label>
+                            <input type="password" placeholder="Enter Password" name="password" required>
+                        </div>
+
+                        <button type="submit">Login</button>
+                    </div>
+                </form>
+            </main>
+    </body>
+
+    </html>

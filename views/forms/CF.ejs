@@ -1,0 +1,339 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/cf.css">
+
+    </head>
+
+    <body>
+        <%- include('../includes/nav.ejs') %>
+
+            <div class="container">
+                <form action="/clearance" method="post" onsubmit="showloadingButton();">
+
+                    <div class="row" style="background-color:rgb(202, 211, 203);">
+                        <div class="row">
+                            <h3>بيانات الموظف</h3>
+                            <div class="col-25">
+                                <label for="lname">الاسم</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="userName" value="<%= userName %>" required readonly>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">رقم الموظف</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="empId" placeholder="0221558" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">الجـنـسـيـة</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="empNat" placeholder="سعودي" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">الإدارة</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="empAdmini" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">الـقــســــم</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="empDep" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-25">
+                                <label for="lname">مسمى الوظيفة</label>
+                            </div>
+                            <div class="col-75">
+                                <input type="text" name="empJob" placeholder="محاسب" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-25" for="lname">سبب إخلاء الطرف:</label>
+                            <div class="col-75">
+                                <label class="radio-inline">
+                                    <input type="radio" name="vacExit" checked required value="1">إجازة
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="vacExit" value="0">نهاية خدمة
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="column" style="background-color:#aaa;">
+                            <div class="row">
+                                <h3>إدارة المـوظــــف</h3>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">الاســم</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="edName" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">التاريخ</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="date" id="datepicker2" name="edDate" required>
+                                    </div>
+                                </div>
+                                <div class="row" style="text-align: center;">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="edClearance" checked required value="1">يخـلى طـرفـه
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="edClearance" value="0">لا يخلى طرفه
+                                    </label>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">حـــــدد</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="edReason" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column" style="background-color:#bbb;">
+                            <div class="row">
+                                <h3>الحــاسـب الآلــي</h3>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">الاســم</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="itdName" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">التاريخ</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="date" id="datepicker2" name="itdDate" required>
+                                    </div>
+                                </div>
+                                <div class="row" style="text-align: center;">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="itdClearance" checked required value="1">يخـلى طـرفـه
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="itdClearance" value="0">لا يخلى طرفه
+                                    </label>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">حـــــدد</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="itdReason" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="column" style="background-color:#aaa;">
+                            <div class="row">
+                                <h3>المستودعات</h3>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">الاســم</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="sName" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">التاريخ</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="date" id="datepicker2" name="sDate" required>
+                                    </div>
+                                </div>
+                                <div class="row" style="text-align: center;">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="sClearance" checked required value="1">يخـلى طـرفـه
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="sClearance" value="0">لا يخلى طرفه
+                                    </label>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">حـــــدد</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="sReason" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column" style="background-color:#bbb;">
+                            <div class="row">
+                                <h3>المــــــاليــة </h3>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">الاســم</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="fName" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">التاريخ</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="date" id="datepicker2" name="fDate" required>
+                                    </div>
+                                </div>
+                                <div class="row" style="text-align: center;">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="fClearance" checked required value="1">يخـلى طـرفـه
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="fClearance" value="0">لا يخلى طرفه
+                                    </label>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">حـــــدد</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="fReason" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="row">
+                        <div class="column" style="background-color:#aaa;">
+                            <div class="row">
+                                <h3>الشؤون الإدارية والموارد البشرية</h3>
+                                <div class="row" style="text-align: center;">
+                                    <label class="radio-inline">
+                                        <input type="checkbox" name="hrHousing" checked value="1">الإسكان
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="checkbox" name="hrMedicalCard" value="1">بطاقة التأمين
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="checkbox" name="hrEmpCard" value="1">البطاقة الوظيفية
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="checkbox" name="hrLoans" value="1">السلف
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="checkbox" name="hrTransportation" value="1">الحركة
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="checkbox" name="hrTelecom" value="1">الاتصالات
+                                    </label>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">الاســم</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="hrName" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">التاريخ</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="date" id="datepicker2" name="hrDate" required>
+                                    </div>
+                                </div>
+                                <div class="row" style="text-align: center;">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="hrClearance" checked required value="1">يخـلى طـرفـه
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="hrClearance" value="0">لا يخلى طرفه
+                                    </label>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">حـــــدد</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="hrReason" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column" style="background-color:#bbb;">
+                            <div class="row">
+                                <h3>استخدام شؤون الموظفين</h3>
+                                <div class="row" style="text-align: center;">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="eaClearance" checked required value="1">يخـلى طـرف
+                                        المذكور
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="eaClearance" value="0">لا يخلى طرف المذكور
+                                    </label>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">حـــــدد</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text" name="eaReason" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-255">
+                                        <label for="lname">مشرف عام الشؤون الإدارية والموارد البشرية</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-25">
+                                        <label for="lname">التاريخ</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="date" id="datepicker2" name="eaDate" required>
+                                    </div>
+                                </div>
+                                <div class="row" style="visibility: hidden;">
+                                    <div class="col-25">
+                                        <label for="lname">حـــــدد</label>
+                                    </div>
+                                    <div class="col-75">
+                                        <input type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="submit" id="submitButton" style="display: block;" value="حـفـظ">
+                    <button type="button" style="display: none;" class="buttonload" id="loadingButton">
+                        <i class="fa fa-circle-o-notch fa-spin"></i>
+                    </button>
+                </form>
+            </div>
+            <script src="js/script.js"></script>
+    </body>
+
+    </html>
