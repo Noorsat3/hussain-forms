@@ -11,7 +11,7 @@ const morgan = require("morgan");
 
 const db = require("./util/database");
 
-const port = 3080;
+const port = process.env.PORT || 3080;
 
 const app = express();
 
